@@ -1,0 +1,9 @@
+[0m[01;34mbuilddefs[0m/              Doxyfile      [01;34mlib[0m/                     Makefile    readme.md             [01;34mtests[0m/
+crkbd_rev1_charlie.hex  doxygen-todo  LICENSE                  nose2.cfg   requirements-dev.txt  [01;34mtmk_core[0m/
+[01;34mdata[0m/                   [01;34mdrivers[0m/      license_GPLv2.md         paths.mk    requirements.txt      [01;34musers[0m/
+Dockerfile              [01;34mkeyboards[0m/    license_GPLv3.md         [01;34mplatforms[0m/  setup.cfg             [01;34mutil[0m/
+[01;34mdocs[0m/                   [01;34mlayouts[0m/      license_Modified_BSD.md  [01;34mquantum[0m/    shell.nix             Vagrantfile
+## [32mmaster[m...[31morigin/master[m
+[32mM[m  keyboards/crkbd/keymaps/charlie/rules.mk
+[31m??[m .ccls-cache/@home@char@projects@personal@code@qmk_firmware/keyboards@crkbd@keymaps@charlie@config.h
+[31m??[m .ccls-cache/@home@char@projects@personal@code@qmk_firmware/keyboards@crkbd@keymaps@charlie@config.h.blob
