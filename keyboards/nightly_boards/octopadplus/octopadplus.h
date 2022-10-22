@@ -1,4 +1,4 @@
-/* Copyright 2021 HorrorTroll <https://github.com/HorrorTroll>
+/* Copyright 2022 DeskDaily
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,4 +16,22 @@
 
 #pragma once
 
-#define DYNAMIC_KEYMAP_LAYER_COUNT 2
+#include "quantum.h"
+
+/* This is a shortcut to help you visually see your layout.
+ *
+ * The first section contains all of the arguments representing the physical
+ * layout of the board and position of the keys.
+ *
+ * The second converts the arguments into a two-dimensional array which
+ * represents the switch matrix.
+ */
+#define LAYOUT( \
+    K04,                K15, \
+    K00,  K01,   K02,   K03,    \
+    K10,  K11,   K12,   K13    \
+\
+) { \
+    { K00,   K01,   K02,    K03,    K04,    KC_NO  }, \
+    { K10,   K11,   K12,    K13,    KC_NO,  K15    }, \
+}
