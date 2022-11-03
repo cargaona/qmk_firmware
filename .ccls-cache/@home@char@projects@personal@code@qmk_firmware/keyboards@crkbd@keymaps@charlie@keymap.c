@@ -35,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_LOWER] = LAYOUT_split_3x6_3(
-      KC_GESC, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN,  KC_RPRN, KC_BSPC,
+      KC_GESC,             KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,            KC_F6,   KC_F7,   KC_F8,   KC_F9,    KC_F10,  KC_BSPC,
       MT(MOD_LSFT,KC_TAB), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, XXXXXXX, KC_DEL,
       KC_LCTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_PGUP, KC_HOME, KC_PGDN, KC_END,   XXXXXXX, MT(MOD_RSFT, KC_ENT),
                                         KC_LALT,_______,  KC_LGUI,               KC_SPC,  MO(_ADJUST) ,KC_RALT
@@ -49,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   
   [_ADJUST] = LAYOUT_split_3x6_3(
-      QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      _______ , _______ , KC_PSCR , KC_KB_VOLUME_DOWN, KC_KB_VOLUME_UP, KC_MEDIA_PLAY_PAUSE,
+      QK_BOOT, KC_F11,  KC_F12,  XXXXXXX, XXXXXXX, XXXXXXX,                      _______ , _______ , KC_PSCR , KC_KB_VOLUME_DOWN, KC_KB_VOLUME_UP, KC_MEDIA_PLAY_PAUSE,
       _______, _______, _______, _______, XXXXXXX, XXXXXXX,                      _______ , _______ , _______ , KC_MUTE, XXXXXXX, XXXXXXX,
       _______, _______, _______, _______, XXXXXXX, XXXXXXX,                      _______ , _______ , _______ , KC_BRID, KC_BRIU, XXXXXXX,
                                           KC_LGUI, _______,  _______,     _______, _______, KC_0
