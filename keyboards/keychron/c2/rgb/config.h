@@ -1,6 +1,5 @@
 /* Copyright 2020 Adam Honse <calcprogrammer1@gmail.com>
  * Copyright 2020 Dimitris Mantzouranis <d3xter93@gmail.com>
- * Copyright 2022 Harrison Chan (Xelus)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,46 +17,54 @@
 
 #pragma once
 
-/* USB Device descriptor parameter */
-#define VENDOR_ID       0x3434
-// PRODUCT_ID is specified separately for ISO / ANSI models
-#define MANUFACTURER    Keychron
-#define PRODUCT         K8 RGB
-
 #include "config_common.h"
 
+/* USB Device descriptor parameter */
+#define VENDOR_ID           0x05AC
+#define PRODUCT_ID          0x024F
+#define DEVICE_VER          0x0001
+
+#define MANUFACTURER        Keychron
+#define PRODUCT             \x43\x32 RGB
+#define DESCRIPTION         \x43\x32 RGB QMK
+
 /* key matrix size */
-#define MATRIX_ROWS 6
-#define MATRIX_COLS 17
+#define MATRIX_ROWS         6
+#define MATRIX_COLS         21
 
-#define DIODE_DIRECTION COL2ROW
+#define DIODE_DIRECTION ROW2COL
 
-#define MATRIX_COL_PINS { A8, A9, A10, A11, A12, A13, A14, A15, B0, B1, B2, B3, B4, B5, B6, B7, B8 }
-#define MATRIX_ROW_PINS { C15, D11, D10, D9, D8, D7 }
+#define MATRIX_COL_PINS     { A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, B0, B1, B2, B3, B4, B5 }
+#define MATRIX_ROW_PINS     { C15, D11, D10, D9, D8, D7 }
 
 // Connects each switch in the dip switch to the GPIO pin of the MCU
-#define DIP_SWITCH_PINS { D4, D5 }
-
-/* LED Status indicators */
-#define LED_CAPS_LOCK_PIN B12
-#define LED_PIN_ON_STATE  1
+#define DIP_SWITCH_PINS     { D6 }
 
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
-#define DEBOUNCE 5
+#define DEBOUNCE            0
 
-// RGB LED Config
-#define LED_MATRIX_ROWS MATRIX_ROWS
-#define LED_MATRIX_ROW_CHANNELS 3
-#define LED_MATRIX_ROWS_HW (LED_MATRIX_ROWS * LED_MATRIX_ROW_CHANNELS)
-#define LED_MATRIX_ROW_PINS { C3, C1, C0, C6, C5, C4, C9, C8, C7, C12, C11, C10, B13, C14, C13, B14, B15, D3 }
+/* LED Status indicators */
+#define LED_NUM_LOCK_PIN    B14
+#define LED_CAPS_LOCK_PIN   B13
+#define LED_MAC_PIN         B15
+#define LED_WIN_PIN         B12
+#define LED_PIN_ON_STATE    1
 
-#define LED_MATRIX_COLS MATRIX_COLS
-#define LED_MATRIX_COL_PINS MATRIX_COL_PINS
+/* Polling Rate */
+#define USB_POLLING_INTERVAL_MS 1
 
-// RGB Matrix Effects
-#define RGB_MATRIX_FRAMEBUFFER_EFFECTS
-#define RGB_MATRIX_KEYPRESSES
+/* Disable RGB while USB is sleeping */
+#define RGB_DISABLE_WHEN_USB_SUSPENDED true
 
+/* Enable NKRO by default */
+#define FORCE_NKRO
+
+/* Memory Optimizations  */
+#define DYNAMIC_KEYMAP_LAYER_COUNT 4
+#define LAYER_STATE_8BIT
+#define DYNAMIC_KEYMAP_EEPROM_MAX_ADDR 1200
+
+/* RGB Non-Reactive Effects */
 #define ENABLE_RGB_MATRIX_ALPHAS_MODS
 #define ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
 #define ENABLE_RGB_MATRIX_GRADIENT_LEFT_RIGHT
@@ -79,17 +86,22 @@
 #define ENABLE_RGB_MATRIX_DUAL_BEACON
 #define ENABLE_RGB_MATRIX_RAINBOW_BEACON
 #define ENABLE_RGB_MATRIX_RAINBOW_PINWHEELS
-// #define ENABLE_RGB_MATRIX_RAINDROPS   - BROKEN
-// #define ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS - BROKEN
+#define ENABLE_RGB_MATRIX_RAINDROPS
+#define ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
 #define ENABLE_RGB_MATRIX_HUE_BREATHING
 #define ENABLE_RGB_MATRIX_HUE_PENDULUM
 #define ENABLE_RGB_MATRIX_HUE_WAVE
-#define ENABLE_RGB_MATRIX_PIXEL_RAIN
 #define ENABLE_RGB_MATRIX_PIXEL_FRACTAL
-
+#define ENABLE_RGB_MATRIX_PIXEL_RAIN
 #define ENABLE_RGB_MATRIX_TYPING_HEATMAP
-// #define ENABLE_RGB_MATRIX_DIGITAL_RAIN - BROKEN
+#define ENABLE_RGB_MATRIX_DIGITAL_RAIN
 
+/* RGB Reactive Effects Toggle */
+#define RGB_MATRIX_FRAMEBUFFER_EFFECTS
+#define RGB_MATRIX_KEYPRESSES
+//#define RGB_MATRIX_KEYRELEASES
+
+/* RGB Reactive Effects */
 #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
 #define ENABLE_RGB_MATRIX_SOLID_REACTIVE
 #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_WIDE
@@ -103,5 +115,4 @@
 #define ENABLE_RGB_MATRIX_SOLID_SPLASH
 #define ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
 
-/* Disable RGB while USB is sleeping */
-#define RGB_DISABLE_WHEN_USB_SUSPENDED true
+#include "config_led.h"
