@@ -24,6 +24,7 @@ enum crkbd_layers {
     _LOWER,
     _RAISE,
     _ADJUST,
+    _NUMPAD,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -35,24 +36,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_LOWER] = LAYOUT_split_3x6_3(
-      KC_GESC,             KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,            KC_F6,   KC_F7,   KC_F8,   KC_F9,    KC_F10,  KC_BSPC,
-      MT(MOD_LSFT,KC_TAB), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, XXXXXXX, KC_DEL,
-      KC_LCTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_PGUP, KC_HOME, KC_PGDN, KC_END,   XXXXXXX, MT(MOD_RSFT, KC_ENT),
-                                        KC_LALT,_______,  KC_LGUI,               KC_SPC,  MO(_ADJUST) ,KC_RALT
+      _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,    KC_F10,  _______,
+      _______, _______, _______, _______, _______, _______,                      KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, _______, KC_DEL,
+      _______, _______, _______, _______, _______, _______,                      KC_PGUP, KC_HOME, KC_PGDN, KC_END,   _______, _______, 
+                                          _______, _______,  _______,            _______, MO(_ADJUST) ,_______
   ),
 
   [_RAISE] = LAYOUT_split_3x6_3(
-      KC_GESC,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
-      MT(MOD_LSFT,KC_TAB),  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,         KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS, KC_GRV,
-      KC_LCTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, MT(MOD_RSFT, KC_ENT),
-                                          KC_LALT, MO(_ADJUST),  KC_LGUI,        KC_SPC, _______ ,KC_RALT
+      _______,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                     KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
+      _______, _______, _______, _______, _______, _______,                     KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS, KC_GRV,
+      _______, _______, _______, _______, _______, _______,                     KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, _______,
+                                          _______, MO(_ADJUST), _______,        _______, _______, _______
   ),
   
   [_ADJUST] = LAYOUT_split_3x6_3(
-      QK_BOOT, KC_F11,  KC_F12,  XXXXXXX, XXXXXXX, XXXXXXX,                      _______ , _______ , KC_PSCR , KC_KB_VOLUME_DOWN, KC_KB_VOLUME_UP, KC_MEDIA_PLAY_PAUSE,
-      _______, _______, _______, _______, XXXXXXX, XXXXXXX,                      _______ , _______ , _______ , KC_MUTE, XXXXXXX, XXXXXXX,
-      _______, _______, _______, _______, XXXXXXX, XXXXXXX,                      _______ , _______ , _______ , KC_BRID, KC_BRIU, XXXXXXX,
-                                          KC_LGUI, _______,  _______,     _______, _______, KC_0
+      QK_BOOT, KC_F11,  KC_F12,  _______, _______, _______,                      _______ , _______ , KC_PSCR , KC_KB_VOLUME_DOWN, KC_KB_VOLUME_UP, KC_MEDIA_PLAY_PAUSE,
+      _______, _______, _______, _______, _______, _______,                      _______ , _______ , _______ , KC_MUTE, _______, _______,
+      _______, _______, _______, _______, _______, _______,                      _______ , TG(_NUMPAD) , _______ , KC_BRID, KC_BRIU, _______,
+                                          _______, _______,  _______,            _______, _______, _______
+  ),
+  [_NUMPAD] = LAYOUT_split_3x6_3(
+      _______, _______, _______, _______, _______, _______,                      _______ , KC_SLSH, KC_7 , KC_8 , KC_9,  _______,
+      _______, _______, _______, _______, _______, _______,                      KC_PLUS , KC_ASTR, KC_4 , KC_5 , KC_6,  _______,
+      _______, _______, _______, _______, _______, _______,                      KC_MINS , KC_EQL,  KC_1 , KC_2 , KC_3,  _______,
+                                          _______, TG(_NUMPAD),KC_LGUI,          KC_COMM , KC_DOT , KC_0
   )
 };
 
