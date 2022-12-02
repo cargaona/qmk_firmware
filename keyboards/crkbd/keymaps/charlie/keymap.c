@@ -28,12 +28,15 @@ enum crkbd_layers {
     _MOUSE, 
 };
 
+#define LT_LWESC LT(_LOWER, KC_ESC)
+#define LT_RABSPC LT(_RAISE, KC_BSPC)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_split_3x6_3(             
-      QK_GESC,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                       KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,
-      MT(MOD_LSFT, KC_TAB), KC_A, KC_S, KC_D, KC_F,  KC_G,                       KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
-      KC_LCTL, KC_Z, KC_X, KC_C, KC_V,  KC_B,                                    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  MT(MOD_RSFT, KC_ENT),
-                                        KC_LALT,   MO(_LOWER),  KC_LGUI,         KC_SPC,  MO(_RAISE) ,KC_RALT                      
+      QK_GESC,          KC_Q,         KC_W,    KC_E,    KC_R,    KC_T,                       KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,             KC_BSPC,
+      LSFT_T(KC_TAB),   KC_A,         KC_S,    KC_D,    KC_F,    KC_G,                       KC_H,    KC_J,    KC_K,    KC_L,   KC_SCLN,          KC_QUOT,
+      KC_LCTL,          LCTL_T(KC_Z), KC_X,    KC_C,    KC_V,    KC_B,                       KC_N,    KC_M,    KC_COMM, KC_DOT, RSFT_T(KC_SLSH),  RSFT_T(KC_ENT),
+                        LALT_T(KC_TAB),   LT_LWESC,     MT(MOD_LGUI, KC_ENT),                KC_SPC,  LT_RABSPC, RALT_T(KC_GRV)                      
   ),
 
   [_LOWER] = LAYOUT_split_3x6_3(
