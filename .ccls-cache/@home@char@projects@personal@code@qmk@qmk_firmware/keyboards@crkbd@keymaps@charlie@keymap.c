@@ -16,8 +16,6 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-// TODO: C-z is not possible to do using 3x5 layout. 
-// TODO: S-/ to trigger '?' char is not possible using 3x5 layout. 
 
 #include QMK_KEYBOARD_H
 #include <stdio.h>
@@ -79,23 +77,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_LCTL,          LCTL_T(KC_Z), KC_X,    KC_C,    KC_V,    KC_B,                       KC_N,    KC_M,    KC_COMM, KC_DOT, RSFT_T(KC_SLSH),  RSFT_T(KC_ENT),
                         LALT_T(KC_TAB),   LT_LWESC,     MT(MOD_LGUI, KC_ENT),                KC_SPC,  MO(_RAISE), RALT_T(KC_GRV)                      
   ),
+
   [_LOWER] = LAYOUT_split_3x6_3(
       _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,    KC_F10,  _______,
-      _______, _______, _______, _______, _______, _______,                      KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_QUOT, KC_DEL,
+      _______, KC_LSFT, _______, _______, _______, _______,                      KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_QUOT, KC_DEL,
       _______, _______, _______, _______, _______, _______,                      KC_PGUP, KC_HOME, KC_PGDN, KC_END,   KC_PIPE, _______, 
                                           _______, _______,  _______,            _______, MO(_ADJUST) , _______
   ),
 
   [_RAISE] = LAYOUT_split_3x6_3(
       _______,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                     KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
-      _______, _______, _______, _______, _______, _______,                     KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS, KC_GRV,
-      _______, _______, _______, _______, _______, _______,                     KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, _______ , _______,
+      _______, KC_LSFT, _______, _______, _______, _______,                     KC_EQL,  KC_MINS, KC_LBRC, KC_RBRC, KC_BSLS, KC_GRV,
+      _______, LCTL(KC_Z), _______, _______, _______, _______,                     KC_PLUS, KC_UNDS, KC_LCBR, KC_RCBR, _______ , _______,
                                           _______, MO(_ADJUST), _______,        _______, _______, _______
   ),
   
   [_ADJUST] = LAYOUT_split_3x6_3(
       QK_BOOT, KC_F11,  KC_F12,  _______, _______, _______,                      _______, KC_BRID, KC_VOLU, KC_MPLY, KC_PSCR, _______, 
-      _______, _______, _______, _______, _______, _______,                      _______, KC_BRIU, KC_VOLD, _______, _______, _______,
+      _______, LCTL(KC_Z), _______, _______, _______, _______,                      _______, KC_BRIU, KC_VOLD, _______, _______, _______,
       _______, _______, _______, _______, _______, _______,                  TG(_NUMPAD), TG(_MOUSE), KC_MUTE, _______, _______, _______,
                                           _______, _______,  _______,            _______, _______, _______
   ),
@@ -109,6 +108,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       TG(_MOUSE), TG(_MOUSE),  _______, _______, _______, _______,                      _______, _______, _______, _______, _______, _______,
       _______,   _______, _______, _______, _______, _______,                      KC_BTN2, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______,
       _______,   _______, _______, _______, _______, _______,                      _______, _______, _______, _______, _______, _______,
-                                            _______, _______, _______,          KC_BTN1, _______, _______
+                                            _______, _______, _______,             KC_BTN1, _______, _______
   )
 };
