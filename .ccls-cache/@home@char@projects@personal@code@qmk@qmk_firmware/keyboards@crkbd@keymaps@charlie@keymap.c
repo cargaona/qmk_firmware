@@ -135,7 +135,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 // TAP DANCE FUNCTIONS
 void dance_cln_finished (qk_tap_dance_state_t *state, void *user_data) {
   if (state->count == 1) {
-//    register_code (KC_RSFT);
+    register_code (KC_RSFT);
     register_code (KC_SCLN);
   } else {
     register_code (KC_SCLN);
