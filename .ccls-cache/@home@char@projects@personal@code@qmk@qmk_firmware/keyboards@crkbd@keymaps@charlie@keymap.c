@@ -36,13 +36,14 @@ enum {
 
 #define MOD_MASK_LALT MOD_BIT(KC_LALT)
 #define LT_LWESC LT(_LOWER, KC_ESC)
+#define LT_LWTAB LT(_LOWER, KC_TAB)
 #define LT_RABSPC LT(_RAISE, KC_BSPC)
 
 
 const uint16_t PROGMEM OP_BSPC_COMBO[] = {KC_O, KC_P, COMBO_END};
 const uint16_t PROGMEM OP_ESC_COMBO[] = {KC_Q, KC_W, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
-    COMBO(OP_BSPC_COMBO, KC_BSPC),
+//    COMBO(OP_BSPC_COMBO, KC_BSPC),
     COMBO(OP_ESC_COMBO, KC_ESC),
 };
 
@@ -58,6 +59,7 @@ const key_override_t ampersand_key_override = ko_make_basic(MOD_MASK_LALT, KC_U,
 const key_override_t asterisk_key_override = ko_make_basic(MOD_MASK_LALT, KC_I, KC_ASTR);
 const key_override_t left_parenthesis_key_override = ko_make_basic(MOD_MASK_LALT, KC_O, KC_LPRN);
 const key_override_t right_parethesis_override = ko_make_basic(MOD_MASK_LALT, KC_P, KC_RPRN);
+const key_override_t question_mark_override = ko_make_basic(MOD_MASK_LALT, KC_SLSH, KC_QUES);
 
 const key_override_t back_browser_key_override = ko_make_basic(MOD_MASK_LALT, KC_BSPC, LALT(KC_LEFT));
 const key_override_t ctrl_tab_key_override = ko_make_basic(MOD_MASK_LALT, KC_N, LCTL(KC_TAB));
@@ -73,6 +75,7 @@ const key_override_t **key_overrides = (const key_override_t *[]){
 	&asterisk_key_override , 
 	&left_parenthesis_key_override, 
 	&right_parethesis_override, 
+    &question_mark_override,
 
 	&back_browser_key_override, 
 
@@ -85,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       QK_GESC,          KC_Q,             KC_W,         KC_E,        KC_R,    KC_T,                       KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,    KC_BSPC,
       LSFT_T(KC_TAB),   LSFT_T(KC_A),     KC_S,         KC_D,        KC_F,    KC_G,                       KC_H,    KC_J,    KC_K,    KC_L,   TD(CT_CLN),       KC_QUOT,
       KC_LCTL,          LCTL_T(KC_Z),     KC_X,         KC_C,        KC_V,    KC_B,                       KC_N,    KC_M,    KC_COMM, KC_DOT, RSFT_T(KC_SLSH),  RSFT_T(KC_ENT),
-                                LALT_T(KC_TAB),   LT_LWESC,     MT(MOD_LGUI, KC_ENT),                     KC_SPC,  MO(_RAISE), RALT_T(KC_GRV)                      
+                                LALT_T(KC_ESC),   LT_LWTAB,     MT(MOD_LGUI, KC_ENT),                     KC_SPC,  MO(_RAISE), RALT_T(KC_GRV)                      
   ),
 
   [_LOWER] = LAYOUT_split_3x6_3(
